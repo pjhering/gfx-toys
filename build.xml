@@ -1,0 +1,42 @@
+<project name="gfx-toys" default="dist" basedir=".">
+
+  <property name="src" value="${basedir}/source"/>
+  <property name="res" value="${basedir}/assets"/>
+  <property name="lib" value="${basedir}/library"/>
+  <property name="bin" value="${basedir}/build"/>
+  <property name="main" value="gfxtoys.Main"/>
+  <property name="jarfile" value="gfx-toys.jar"/>
+
+  <target name="clean">
+    <delete dir="${bin}"/>
+    <delete file="${jarfile}"/>
+  </target>
+
+  <target name="prepare">
+    <mkdir dir="${bin}"/>
+  </target>
+
+  <target name="compile" depends="prepare">
+    <javac srcdir="${src}"
+           destdir="${bin}"
+           includeantruntime="false">
+      <classpath>
+        <fileset dir="${lib}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="dist" depends="compile">
+    <jar destfile="${jarfile}">
+      <manifest>
+        <attribute name="Main-Class" value="${main}"/>
+      </manifest>
+      <fileset dir="${bin}"/>
+      <fileset dir="${res}"/>
+      <zipgroupfileset dir="${lib}" includes="**/*.jar"/>
+    </jar>
+  </target>
+
+</project>
