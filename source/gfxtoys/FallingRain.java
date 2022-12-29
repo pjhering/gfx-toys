@@ -11,32 +11,32 @@ import java.awt.event.KeyEvent;
 
 public class FallingRain extends Scene {
 
-	private boolean showMenu = false;
+    private boolean showMenu = false;
 
     public void update (SceneManager mgr, long elapsedMillis) {
-    	if (showMenu) {
-    		mgr.pop ();
-    	}
+        if (showMenu) {
+            mgr.pop ();
+        }
     }
 
     @Override
     public void keyPressed (KeyEvent e) {
-    	if (e.getKeyCode () == KeyEvent.VK_ESCAPE) {
-    		showMenu = true;
-    	}
+        if (e.getKeyCode () == KeyEvent.VK_ESCAPE) {
+            showMenu = true;
+        }
     }
 
     public void render (Graphics g) {
-    	g.setColor (Color.BLACK);
-    	g.fillRect (0, 0, WIDTH, HEIGHT);
+        g.setColor (Color.BLACK);
+        g.fillRect (0, 0, WIDTH, HEIGHT);
 
-    	g.setColor (Color.RED);
-    	g.setFont (MENU_FONT);
-    	g.drawString ("Falling Rain", 25, 100);
+        g.setColor (Color.RED);
+        g.setFont (MENU_FONT);
+        g.drawString ("Falling Rain", 25, 100);
     }
 
     public void activate () {
-    	this.showMenu = false;
+        this.showMenu = false;
     }
 
     public void deactivate () {
