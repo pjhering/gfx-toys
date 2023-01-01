@@ -1,3 +1,4 @@
 build/
 gfx-toys.jar
 GithubToken.txt
+*.sublime-*
