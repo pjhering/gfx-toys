@@ -17,6 +17,7 @@ public class Menu extends Scene {
 		"Boids", 
         "Falling Rain",
         "Game of Life", 
+        "Hilbert Curve", 
         "L-System Tree",
         "Recursive Tree", 
         "Snowflakes", 
@@ -28,14 +29,15 @@ public class Menu extends Scene {
 
     public void update (SceneManager mgr, long elapsedMillis) {
     	switch (selectedItem) {
-    		case 1: mgr.push (new Boids ()); break;
-            case 2: mgr.push (new FallingRain ()); break;
-            case 3: mgr.push (new GameOfLife ()); break;
-            case 4: mgr.push (new LSystemTree ()); break;
-            case 5: mgr.push (new RecursiveTree ()); break;
-            case 6: mgr.push (new Snowflakes ()); break;
-            case 7: mgr.push (new WaterRipple ()); break;
-            case 8: mgr.push (new WorleyNoise ()); break;
+    		case KeyEvent.VK_1: mgr.push (new Boids ()); break;
+            case KeyEvent.VK_2: mgr.push (new FallingRain ()); break;
+            case KeyEvent.VK_3: mgr.push (new GameOfLife ()); break;
+            case KeyEvent.VK_4: mgr.push (new HilbertCurve ()); break;
+            case KeyEvent.VK_5: mgr.push (new LSystemTree ()); break;
+            case KeyEvent.VK_6: mgr.push (new RecursiveTree ()); break;
+            case KeyEvent.VK_7: mgr.push (new Snowflakes ()); break;
+            case KeyEvent.VK_8: mgr.push (new WaterRipple ()); break;
+            case KeyEvent.VK_9: mgr.push (new WorleyNoise ()); break;
     	}
     }
 
@@ -57,16 +59,7 @@ public class Menu extends Scene {
 
     @Override
     public void keyPressed (KeyEvent e) {
-    	switch (e.getKeyCode ()) {
-	    	case KeyEvent.VK_1: selectedItem = 1; break; // Boids
-            case KeyEvent.VK_2: selectedItem = 2; break; // Falling Rain
-            case KeyEvent.VK_3: selectedItem = 3; break; // Game of Life
-            case KeyEvent.VK_4: selectedItem = 4; break; // L-System Tree
-            case KeyEvent.VK_5: selectedItem = 5; break; // Recursive Tree
-            case KeyEvent.VK_6: selectedItem = 6; break; // Snowflakes
-            case KeyEvent.VK_7: selectedItem = 7; break; // Worley Noise
-            case KeyEvent.VK_8: selectedItem = 8; break; // Worley Noise
-    	}
+        selectedItem = e.getKeyCode ();
     }
 
     public void activate () {
