@@ -20,6 +20,7 @@ public class Menu extends Scene {
         "L-System Tree",
         "Recursive Tree", 
         "Snowflakes", 
+        "Water Ripple",
         "Worley Noise"
 	};
 	private int selectedItem = 0;
@@ -33,7 +34,8 @@ public class Menu extends Scene {
             case 4: mgr.push (new LSystemTree ()); break;
             case 5: mgr.push (new RecursiveTree ()); break;
             case 6: mgr.push (new Snowflakes ()); break;
-            case 7: mgr.push (new WorleyNoise ()); break;
+            case 7: mgr.push (new WaterRipple ()); break;
+            case 8: mgr.push (new WorleyNoise ()); break;
     	}
     }
 
@@ -63,6 +65,7 @@ public class Menu extends Scene {
             case KeyEvent.VK_5: selectedItem = 5; break; // Recursive Tree
             case KeyEvent.VK_6: selectedItem = 6; break; // Snowflakes
             case KeyEvent.VK_7: selectedItem = 7; break; // Worley Noise
+            case KeyEvent.VK_8: selectedItem = 8; break; // Worley Noise
     	}
     }
 
